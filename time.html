@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الدائرة الثانية</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 24px;
+      font-family: serif;
+    }
+  </style>
+</head>
+<body>
+
+<p>الوقت يمر عندما تقف.</p>
+
+<script>
+if (!localStorage.getItem("timeEntered")) {
+  localStorage.setItem("timeEntered", Date.now());
+}
+
+setInterval(() => {
+  if (window.outerWidth - window.innerWidth > 120) {
+    localStorage.setItem("spectator", "1");
+  }
+}, 1000);
+
+setTimeout(() => {
+  if (localStorage.getItem("spectator")) {
+    console.log("أنت تنظر هنا لأنك لم تصبر هناك.");
+  }
+}, 90000);
+
+const entered = localStorage.getItem("timeEntered");
+if (Date.now() - entered > 86400000) {
+  window.location.href = "void.html";
+}
+</script>
+
+</body>
+</html>
