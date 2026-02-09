@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الدائرة الأولى</title>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      height: 100vh;
+      place-items: center;
+      font-family: serif;
+    }
+    button {
+      padding: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  
+<script>
+  
+if (!localStorage.getItem("state")) {
+  localStorage.setItem("state", JSON.stringify({
+    entered: Date.now(),
+    mistakes: 0
+  }));
+}
+
+
+function trap() {
+  const s = JSON.parse(localStorage.getItem("state"));
+  s.mistakes++;
+  localStorage.setItem("state", JSON.stringify(s));
+  location.reload();
+}
+
+
+setTimeout(() => {
+  window.location.href = "time.html";
+}, 180000);
+</script>
+
+<button onclick="trap()">باب</button>
+<button onclick="trap()">باب</button>
+<button onclick="trap()">باب</button>
+<button onclick="trap()">باب</button>
+<button onclick="trap()">باب</button>
+<button onclick="trap()">باب</button>
+<button onclick="trap()">باب</button>
+<button onclick="trap()">باب</button>
+<button onclick="trap()">باب</button>
+
+</body>
+</html>
